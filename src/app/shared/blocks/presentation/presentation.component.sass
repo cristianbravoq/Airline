@@ -1,0 +1,80 @@
+@mixin font-face($family, $weight: normal, $style: normal, $url)
+  @font-face
+    font-family: $family
+    src: $url
+    font-weight: $weight
+    font-style: $style
+
+@include font-face('Roboto-Bold', 500, normall, url('/assets/fonts/Roboto-Bold.ttf'))
+@include font-face('Roboto-Regular', 500, normall, url('/assets/fonts/Roboto-Regular.ttf'))
+@include font-face('Roboto-Light', 500, normall, url('/assets/fonts/Roboto-Light.ttf'))
+
+.contenedor
+    background-image: url("/assets/resources/plane.jpg")
+    background-repeat: no-repeat
+    background-size: cover
+    background-attachment: fixed
+    height: 80vh
+    width: 100%
+
+.menu
+    display: flex
+    flex: auto
+
+h2, p
+    color: #fff
+    font-family: Roboto-Regular
+
+.title
+    font-size: 37px
+    margin-left: 63px
+
+.title__p
+    font-size: 22px
+    margin-left: 63px
+    width: 60%
+
+button
+    background-color: #FB3640
+    width: 233px
+    height: 50px
+    border-radius: 30px
+    border-color: transparent
+    font-family: Roboto-Bold
+    font-size: 20px
+    color: #fff
+    position: absolute
+    top: 60%
+    margin-left: 63px
+
+@media (max-width: 870px)
+    h2
+        display: fixed
+        width: 50%
+        font-size: .5em
+    .title__p
+        font-size: 35px
+        margin-left: 26px
+    .title
+        font-size: 67px
+        margin-left: 26px
+    button
+        margin-left: 26px
+    .contenedor
+        height: 80vh
+
+@media (max-width: 690px)
+    h2
+        display: fixed
+        width: 50%
+        font-size: .5em
+    .title__p
+        font-size: 22px
+        margin-left: 26px
+    .title
+        font-size: 42px
+        margin-left: 26px
+    button
+        margin-left: 26px
+    .contenedor
+        height: 80vh

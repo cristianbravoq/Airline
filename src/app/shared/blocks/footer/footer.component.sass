@@ -1,0 +1,83 @@
+@mixin font-face($family, $weight: normal, $style: normal, $url)
+  @font-face
+    font-family: $family
+    src: $url
+    font-weight: $weight
+    font-style: $style
+
+@include font-face('Roboto-Regular', 500, normall, url('/assets/fonts/Roboto-Regular.ttf'))
+
+.footer
+    background-color: #0A2463
+    text-align: center
+    width: 100%
+
+.footer__info--social
+    display: block
+    padding-top: 5em
+    padding-bottom: 2em
+    a
+        background-color: #FFFFFF
+        border: 100% solid #FFF
+        border-radius: 50%
+        width: 25px
+        height: 25px
+        display: inline-block
+        padding: 10px
+        margin: 20px
+    p
+        font-family: Roboto-Regular
+        font-size: 20px
+        color: #fff
+        margin: 0
+
+img
+    width: 25px
+    color: white
+    filter: opacity(0.4) drop-shadow(0 0 0 #0A2463)
+
+.footer__info
+    font-family: Roboto-Regular
+    display: flex
+    justify-content: space-between
+    text-align: left
+    padding-bottom: 3em
+    margin: 0em 6em
+
+h3
+    color: #FB3640
+
+li, a
+    text-decoration: none
+    list-style-type: none
+    color: #fff
+    padding-bottom: 1em
+    font-size: 20px
+
+@media (max-width: 870px)
+    h3, li, a
+        font-size: 0.8em
+    .footer__info
+        font-family: Roboto-Regular
+        display: flex
+        justify-content: space-between
+        text-align: left
+        padding-bottom: 3em
+        margin: 0em 3em
+    .footer__info--social
+        padding-top: 2em
+        padding-bottom: 1em
+
+@media (max-width: 450px)
+    h3, li, a
+        font-size: 0.4em
+    .footer__info
+        font-family: Roboto-Regular
+        display: flex
+        justify-content: space-between
+        text-align: left
+        padding-bottom: 1em
+        margin: 0 1em
+    .footer__info--social
+        padding-top: 1em
+        padding-bottom: 0.5em

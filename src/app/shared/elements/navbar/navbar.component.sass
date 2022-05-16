@@ -1,0 +1,227 @@
+@mixin font-face($family, $weight: normal, $style: normal, $url)
+  @font-face
+    font-family: $family
+    src: $url
+    font-weight: $weight
+    font-style: $style
+
+@include font-face('Roboto-Bold', 500, normall, url('/assets/fonts/Roboto-Bold.ttf'))
+@include font-face('Roboto-Regular', 500, normall, url('/assets/fonts/Roboto-Regular.ttf'))
+@include font-face('Roboto-Light', 500, normall, url('/assets/fonts/Roboto-Light.ttf'))
+
+.contenedor-navbar
+    margin: 0
+    display: flex
+    justify-content: space-between
+    font-family: Roboto-Bold
+
+.title
+   display: flex
+   padding: 5px
+   margin: 16px 63px
+   font-size: 24px
+   a
+        text-decoration: none
+        color: #FFF
+        transition: text-shadow, color 300ms
+        &:hover
+            color: #FB3640
+            text-shadow: 0 0 5px #FFF, 0 0 5px #FFF, 0 0 5px #FFF, 0 0 10px #FFF, 0 0 10px #FFF, 0 0 30px #FFF, 0 0 25px #FFF, 0 0 25px #FFF
+
+.menu
+    display: flex
+    justify-content: space-between
+
+
+
+.lenguage
+    width: 20px
+    position: absolute
+    top: 0
+    right: 80px
+    font-size: 14px
+    border-radius: 18px
+    font-family: Roboto-Bold
+    &:hover
+        .lenguage__options
+            visibility: visible
+        .circle__uno
+            top:24px
+            transition: all 0.4s
+        .circle__dos
+            top: 12px
+            transition: all 0.4s
+
+.lenguage__img
+    background-color: Transparent
+    border: none
+    img
+        position: absolute
+
+.circle
+    height: 35px
+    width: 35px
+    top: -5px
+    background: transparent
+    display: fixed
+    position: relative
+    transform: rotate(90deg)
+
+.circle span
+    width: 20px
+    height: 4px
+    background: #ffffff
+    position: absolute
+    border-radius: 10px
+    transitions: all 0.4s
+
+.circle span:nth-child(1)
+    transform: rotate(45deg)
+    top: 10px
+
+.circle span:nth-child(2)
+    transform: rotate(-45deg)
+    bottom: 9px
+
+.lenguage__options
+    display: fixed
+    background-color: #FFFFFF
+    border: 2px solid #FFF
+    border-radius: 18px
+    position: fixed
+    visibility: hidden
+    margin-top: 0em
+    margin-left: -8em
+    padding: 9px
+    text-align: center
+    &::before
+        content: ""
+        width: 0
+        height: 0
+        font-size:0
+        overflow:hidden
+        display: block
+        border-width: 13px
+        border-color: #FFF transparent transparent transparent
+        border-style: solid dashed dashed dashed
+        position: absolute
+        left: 112px
+        top: -25px
+        transform: rotate(180deg)
+    &:hover
+        visibility: visible
+    option
+        background-color: #fff
+        margin: 5px
+        border: none
+        font-family: Roboto-Bold
+        color: #247BA0
+        a
+            text-decoration: none
+            color: #247BA0
+            size: 18px
+
+#chk
+    display: none
+
+.menu__list
+    display: flex
+    margin: 0 55px
+    float: left
+    list-style-type: none
+    width: max-content
+    align-items: center
+    gap: 1em
+    a
+        font-size: 18px
+        margin: 0 15px
+
+a
+    text-decoration: none
+    background-image: linear-gradient( transparent 0%, transparent 90%, #FFF 90%, #FFF 100% )
+    background-repeat: no-repeat
+    background-size: 0% 100%
+    background-position-x: right
+    transition: background-size 300ms
+    color: #FFF
+    &:hover
+        background-size: 100% 100%
+        Background-position-x: left
+
+.show-menu-btn, .hide-menu-btn
+    transition: 0.4s
+    font-size: 30px
+    cursor: pointer
+    display: none
+
+#chk
+    position: absolute
+    visibility: hidden
+    z-index: -1111
+
+select
+    overflow: hidden
+    border-color: #fff
+    option
+        font-size: 20px
+
+.lenguage__item
+    font-size: 15px
+    top: 15px
+    position: relative
+    right: 30px
+    color: #fff
+
+.lenguage:hover
+    .lenguage__item
+        visibility: visible
+
+.menu__btn--show, .menu__btn--hidden
+    color: #fff
+    background: none
+    border: none
+    font-size: 30px
+    line-height: 60px
+    display: none
+    cursor: pointer
+
+@media (max-width: 970px)
+    .menu__btn--show
+        display: block
+        position: absolute
+        right: 48%
+        z-index: 9999999999
+        top: -15px
+        transform: rotate(-90deg)
+        border-radius: 18px
+        background-color: #fdfeff5f
+    .menu__list
+        position: fixed
+        flex-direction: column
+        padding: 15% 0
+        overflow: hidden
+        width: 100%
+        height: 100%
+        margin: 0
+        left: 100%
+        top: 0
+        bottom: 0
+        right: 0
+        background: #333
+        z-index: 999999
+        transition: left 0.7s
+        a
+            margin-bottom: 0.5em
+            font-size: 2em
+            line-height: 100px
+    #chk:checked ~ .menu__list
+        left: 0
+    .lenguage
+        position: fixed
+        right: 45px
+
+@media (max-width: 870px)
+    .title
+        margin: 0 20px
+        top: 0
+        font-size: 24px

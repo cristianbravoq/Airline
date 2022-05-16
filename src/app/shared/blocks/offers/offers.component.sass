@@ -1,0 +1,152 @@
+@mixin font-face($family, $weight: normal, $style: normal, $url)
+  @font-face
+    font-family: $family
+    src: $url
+    font-weight: $weight
+    font-style: $style
+
+@include font-face('Roboto-Bold', 500, normall, url('/assets/fonts/Roboto-Bold.ttf'))
+@include font-face('Roboto-Light', 500, normall, url('/assets/fonts/Roboto-Light.ttf'))
+
+.offers
+    height: auto
+    width: 100%
+    display: grid
+    align-items: center
+
+button
+    background-color: transparent
+
+h1
+    grid-row: 1
+    width: 100%
+    margin: 1em 0 0 2%
+    color: #247BA0
+    position: relative
+    &::after
+        content: ''
+        position: absolute
+        grid-template-areas: header
+        width: 400px
+        height: 1px
+        background-color: #605F5E
+        top: 0.5em
+        margin: 0 0 0 1em
+
+.menu
+    display: flex
+    justify-content: space-around
+    margin: 1em
+    top: 3em
+    margin-bottom: 3.5em
+    display: grid
+    grid-template-rows: auto
+    grid-template-columns: auto
+
+.card
+    position: relative
+    grid-row: 2
+    top: 1.5em
+    width: 233px
+    height: 210px
+    overflow: hidden
+    border-radius: 22px
+    border: 1px solid #676161
+
+.card__menu
+    grid-row: 2
+
+.card__destination
+    grid-row: 3
+    grid-column: 2
+    text-align: center
+    span
+        font-family: Roboto-Light
+
+.card .image 
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+@supports(object-fit: cover)
+    .image img
+      height: 100%
+      width: 100%
+      object-fit: cover
+      object-position: center center
+      border-radius: 18px
+
+.details
+    position: relative
+    display: flex
+    background-color: #000000AD
+    width: 233px
+    height: 210px
+    border-radius: 0 0 18px 18px
+    transform: translateY(-45%)
+    transition: all .5s
+    .center
+        margin: 0.5em
+
+p
+    visibility: hidden
+
+.details:hover
+    transform: translateY(-100%)
+    border-radius: 18px
+    p
+        visibility: inherit
+
+h2, p
+    color: #FFF
+    font-family: Roboto-Light
+    font-size: 19px
+
+select
+    overflow: hidden
+    border-color: #fff
+    height: 20px
+
+.center__price
+    position: absolute
+    z-index: 100
+    right: 5px
+    bottom: 0
+
+@media (max-width: 1020px)
+    .offers
+        display: inline
+    h1
+        display: none
+    .card
+        grid-row: 2
+        grid-column: auto
+    .card__destination
+        grid-row: 3
+        grid-column: 2
+        margin-top: 2em
+    .card__menu
+        grid-column: 2
+        grid-row: 1
+        width: 99%
+        font-size: 0.7em
+
+@media (max-width: 748px)
+    .offers
+        display: grid
+        grid-template-columns: repeat(1, 1fr)
+        grid-template-rows: repeat(2, 1fr)
+        grid-column-gap: 0px
+        grid-row-gap: 0px
+        overflow: hidden
+        height: 75em
+    h1
+        display: none
+    .card
+        grid-area: auto / 1 / auto / 2
+        margin-bottom: 20px
+    .card__destination
+        grid-area: 5 / 1 / 5 / auto
+    .card__menu
+        grid-area: 1 / 1 / 1 / 2
+        font-size: 0.7em

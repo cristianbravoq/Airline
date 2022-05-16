@@ -1,0 +1,39 @@
+<div class="offers">
+    <div class="menu">
+        <h1>Offers</h1>
+        <div class="card" *ngFor="let v of destination">
+            <h2 class="center__price">Price ${{v.price}}</h2>
+            <div class="image">
+              <img src={{v.img}}/>
+            </div>
+            <div class="details">
+                <div class="center">
+                    <div>
+                        <h2>Trip to {{v.trip}}</h2>
+                        <p>Lorem ipsum is simple dummy text on the printing and typesetting industry.
+                            <select name="travel" id="travel" [(ngModel)]="Destination" size="2">
+                                <option [value]="v.trip">
+                                    {{v.trip}}
+                                </option>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card__menu">
+            <app-trip-menu></app-trip-menu>
+        </div>
+        <div class="card__destination">
+            <ng-container *ngIf="this.Destination.value != ''; else travelTemplate">
+                <span>Trip to {{Destination}}</span><hr>
+            </ng-container>
+            <ng-template #travelTemplate>
+                <span>Destination undefine</span><hr>
+            </ng-template>
+            <span>Chosen destination</span>
+        </div>
+    </div>
+</div>
+
+
